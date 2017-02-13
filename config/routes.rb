@@ -11,6 +11,11 @@ resources :products do
     post :add_to_cart
   end
 end
+resources :phones
+resources :tvs
+resources :headsets
+resources :others
+resources :kes
 
 resources :carts do
   collection do
