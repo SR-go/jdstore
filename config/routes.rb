@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :products
   end
 
-  devise_for :users
+  devise_for :users, controllers: {sessions: 'users/sessions'}
 
 resources :products do
   member do
