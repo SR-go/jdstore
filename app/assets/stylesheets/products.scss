@@ -3,9 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*****************globals*************/
-body {
+.show {
   font-family: 'open sans';
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 0px;}
 
 img {
   max-width: 100%; }
