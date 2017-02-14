@@ -82,7 +82,8 @@ img {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
-          flex-grow: 1; }
+          flex-grow: 1;
+        padding-bottom: 50px}
 
 .product-title, .price, .sizes, .colors {
   text-transform: UPPERCASE;
@@ -164,5 +165,3 @@ img {
     opacity: 1;
     -webkit-transform: scale(1);
             transform: scale(1); } }
-
-/*# sourceMappingURL=style.css.map */
