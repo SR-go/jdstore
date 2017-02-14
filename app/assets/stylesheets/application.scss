@@ -34,22 +34,167 @@
       text-align: center;
       color: red;
       margin-top: 0.2px;
-      text-transform: uppercase;
       letter-spacing: 0px;
   }
+  /*footer*/
+  .footer-nav {
+    background: #201f21;
+    padding: 35px 0 20px 0;
+    .columns {
+      max-width: 980px;
+      margin: 0 auto;
+      .column {
+        width: 70px;
+        line-height: 200%;
+        margin: 0 0 10px 25px;
+      }
+      .colum-right {
+        float: right;
+        width: 200px;
+        li {
+          padding: 0;
+          display: block;
+          white-space: nowrap;
+        }
+        .icon-gamepad {
+          display: inline-block;
+          height: 50px;
+          font-size: 0;
+          margin-right: 50px;
+        }
+        h3 {
+          color: #fff;
+          opacity: .5;
+          margin-top: 0;
+          font-size: 24px;
+        }
+        h4 {
+          .fa {
+            font-size: 18px;
+            margin-right: 10px;
+          }
+        }
+        .a-icon {
+          display: inline-block;
+          width: 28px;
+          height: 28px;
+          border: 1px #92a0a9 solid;
+          border-radius: 40px;
+          text-align: center;
+          font-size: 14px;
+          box-sizing: border-box;
+          padding-top: 0;
+          margin-right: 10px;
+          cursor: pointer;
+          vertical-align: middle;
+          margin-top: 10px;
+          .fa {
+            display: block;
+            margin-top: 6px;
+            color: #92a0a9;
+          }
+        }
+        .a-weixin {
+          position: relative;
+          display: inline-block;
+        }
+      }
+      li {
+        h2 {
+          font-size: 16px;
+          color: #fff;
+          font-weight: 700;
+          margin-bottom: 22px;
+          opacity: .5;
+        }
+        a {
+          color: #fff;
+          opacity: .5;
+          white-space: nowrap;
+          line-height: 36px;
+        }
+      }
+    }
+  }
 
-  .foot {
-    font-family: PingFangSC-Medium, Verdana, Geneva, sans-serif;
-    background-color: #ebedef;
+  /*拉票小功能*/
+  .sidebar {
+    display: none;
+    position: fixed;
+    z-index: 998;
+    right: 30px;
+    bottom: 30px;
+    width: 40px;
+    height: auto;
+    line-height: 20px;
+    * {
+      box-sizing: border-box;
+    }
+    ul {
+      padding: 0;
+    }
+    li {
+      position: relative;
+      display: block;
+      height: 40px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      text-align: center;
+      cursor: pointer;
+      margin-top: 8px;
+      background: #fbfbfb;
+      line-height: 42px;
+      &:hover {
+        background: #eee;
+      }
+      &:first-child {
+        margin-top: 0;
+      }
+      &.backtop i {
+        font-size: 18px;
+      }
+      &.support {
+        i {
+          font-size: 20px;
+        }
+        .ewm {
+          line-height: 22px;
+          display: none;
+          left: 0px;
+          opacity: 0;
+          position: absolute;
+          z-index: 1;
+          opacity: 0;
+          display: none;
+          left: 0;
+          top: 50%;
+          margin-top: -68px;
+          width: 136px;
+          height: 136px;
+          padding-right: 20px;
+          p {
+            background: #eee;
+            border-radius: 3px;
+            padding: 12px;
+          }
+        }
+      }
+      i {
+        color: #555;
+      }
+    }
+  }
+
+  .footer {
+    background: #333333;
+    padding: 16px 10px 6px;
     text-align: center;
-    color: #0f1225;
-    line-height: 60px;
-    height: 20px;
-    margin-top: 40px;
-    margin-bottom: 0px;
-    position:relative;
-    left:0px;
-    right: 0px;
-    bottom:0px;
-    padding-bottom: 60px;
+    font-size: 12px;
+    color: #C2C2C2;
+    span {
+      display: inline-block;
+      margin-right: 10px;
+      height: 24px;
+      line-height: 23px;
+    }
   }
