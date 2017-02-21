@@ -36,190 +36,194 @@
       margin-top: 0.2px;
       letter-spacing: 0px;
   }
-  /*footer*/
-  .footer-nav {
-    background: #201f21;
-    padding: 35px 0 20px 0;
-    .columns {
-      max-width: 980px;
-      margin: 0 auto;
-      .column {
-        width: 70px;
-        line-height: 200%;
-        margin: 0 0 10px 25px;
-      }
-      .colum-right {
-        float: right;
-        width: 200px;
-        li {
-          padding: 0;
-          display: block;
-          white-space: nowrap;
-        }
-        .icon-gamepad {
-          display: inline-block;
-          height: 50px;
-          font-size: 0;
-          margin-right: 50px;
-        }
-        h3 {
-          color: #fff;
-          opacity: .5;
-          margin-top: 0;
-          font-size: 24px;
-        }
-        h4 {
-          .fa {
-            font-size: 18px;
-            margin-right: 10px;
-          }
-        }
-        .a-icon {
-          display: inline-block;
-          width: 28px;
-          height: 28px;
-          border: 1px #92a0a9 solid;
-          border-radius: 40px;
-          text-align: center;
-          font-size: 14px;
-          box-sizing: border-box;
-          padding-top: 0;
-          margin-right: 10px;
-          cursor: pointer;
-          vertical-align: middle;
-          margin-top: 10px;
-          .fa {
-            display: block;
-            margin-top: 6px;
-            color: #92a0a9;
-          }
-        }
-        .a-weixin {
-          position: relative;
-          display: inline-block;
-        }
-      }
-      li {
-        h2 {
-          font-size: 16px;
-          color: #fff;
-          font-weight: 700;
-          margin-bottom: 22px;
-          opacity: .5;
-        }
-        a {
-          color: #fff;
-          opacity: .5;
-          white-space: nowrap;
-          line-height: 36px;
-        }
-      }
-    }
-  }
 
-  /*拉票小功能*/
-  .sidebar {
-    display: none;
-    position: fixed;
-    z-index: 998;
-    right: 30px;
-    bottom: 30px;
-    width: 40px;
-    height: auto;
-    line-height: 20px;
-    * {
-      box-sizing: border-box;
+
+
+  html,body{
+    height:100%;
+    margin: 0;
+    padding: 0;}
+
+    .container-fluid {
+      min-height: 100%;
+      height: auto !important;
+      height: 100%;
     }
-    ul {
+    #main_show_box{
+      margin-bottom: 10px; /*留出空间给footer*/
+    }
+
+
+.footer {
+  position: relative;
+  margin-top: -80px;/*高度等于footer的高度*/
+  height: 80px;
+  clear:both;
+}
+
+
+
+/*****************globals*************/
+body {
+  font-family: 'open sans';
+  overflow-x: hidden; }
+
+img {
+  max-width: 100%; }
+
+.preview {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+  @media screen and (max-width: 996px) {
+    .preview {
+      margin-bottom: 20px; } }
+
+.preview-pic {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1; }
+
+.preview-thumbnail.nav-tabs {
+  border: none;
+  margin-top: 15px; }
+  .preview-thumbnail.nav-tabs li {
+    width: 18%;
+    margin-right: 2.5%; }
+    .preview-thumbnail.nav-tabs li img {
+      max-width: 100%;
+      display: block; }
+    .preview-thumbnail.nav-tabs li a {
       padding: 0;
-    }
-    li {
-      position: relative;
-      display: block;
-      height: 40px;
-      border: 1px solid #ddd;
-      border-radius: 3px;
-      text-align: center;
-      cursor: pointer;
-      margin-top: 8px;
-      background: #fbfbfb;
-      line-height: 42px;
-      &:hover {
-        background: #eee;
-      }
-      &:first-child {
-        margin-top: 0;
-      }
-      &.backtop i {
-        font-size: 18px;
-      }
-      &.support {
-        i {
-          font-size: 20px;
-        }
-        .ewm {
-          line-height: 22px;
-          display: none;
-          left: 0px;
-          opacity: 0;
-          position: absolute;
-          z-index: 1;
-          opacity: 0;
-          display: none;
-          left: 0;
-          top: 50%;
-          margin-top: -68px;
-          width: 136px;
-          height: 136px;
-          padding-right: 20px;
-          p {
-            background: #eee;
-            border-radius: 3px;
-            padding: 12px;
-          }
-        }
-      }
-      i {
-        color: #555;
-      }
-    }
-  }
+      margin: 0; }
+    .preview-thumbnail.nav-tabs li:last-of-type {
+      margin-right: 0; }
 
-  .footer {
-    position: absolute;
-    left: 0px;
-    margin-top: 200px;
-    bottom: 0;
+.tab-content {
+  overflow: hidden; }
+  .tab-content img {
     width: 100%;
-    height: 70px;
-    z-index: 1000; /* 确保页面滑动的时候，字体不会从上面滑下去 */
-    background: #333333;
-    padding: 16px 10px 6px;
-    text-align: center;
-    font-size: 12px;
-    color: #C2C2C2;
-    span {
-      display: inline-block;
-      margin-right: 10px;
-      height: 24px;
-      line-height: 23px;
-    }
-  }
+    -webkit-animation-name: opacity;
+            animation-name: opacity;
+    -webkit-animation-duration: .3s;
+            animation-duration: .3s; }
 
-  html{
-    height: 100%;
-  }
+.card {
+  margin-top: 20px;
+  background: #eee;
+  padding: 3em;
+  line-height: 1.5em; }
 
-  body{
-    min-height: 100%;
-    position: relative;
-    padding-bottom: 100px;
-  }
+@media screen and (min-width: 997px) {
+  .wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; } }
 
-  .phone {
-    padding-bottom: 100px;
-  }
+.details {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
 
-  .qita {
-    padding-bottom: 100px;
-  }
+.colors {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1; }
+
+.product-title, .price, .sizes, .colors {
+  text-transform: UPPERCASE;
+  font-weight: bold; }
+
+.checked, .price span {
+  color: #ff9f1a; }
+
+.product-title, .rating, .product-description, .price, .vote, .sizes {
+  margin-bottom: 15px; }
+
+.product-title {
+  margin-top: 0; }
+
+.size {
+  margin-right: 10px; }
+  .size:first-of-type {
+    margin-left: 40px; }
+
+.color {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  height: 2em;
+  width: 2em;
+  border-radius: 2px; }
+  .color:first-of-type {
+    margin-left: 20px; }
+
+.add-to-cart, .like {
+  background: #ff9f1a;
+  padding: 1.2em 1.5em;
+  border: none;
+  text-transform: UPPERCASE;
+  font-weight: bold;
+  color: #fff;
+  -webkit-transition: background .3s ease;
+          transition: background .3s ease; }
+  .add-to-cart:hover, .like:hover {
+    background: #b36800;
+    color: #fff; }
+
+.not-available {
+  text-align: center;
+  line-height: 2em; }
+  .not-available:before {
+    font-family: fontawesome;
+    content: "\f00d";
+    color: #fff; }
+
+.orange {
+  background: #ff9f1a; }
+
+.green {
+  background: #85ad00; }
+
+.blue {
+  background: #0076ad; }
+
+.tooltip-inner {
+  padding: 1.3em; }
+
+@-webkit-keyframes opacity {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(3);
+            transform: scale(3); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(3);
+            transform: scale(3); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+/*# sourceMappingURL=style.css.map */
