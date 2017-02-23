@@ -1,0 +1,62 @@
+.navbar-wrap {
+  background: #3d3d3d; /*背景颜色*/
+  height: 45px; /*设置行高*/
+  line-height: 45px; /*设置行间距，实现垂直居中，口诀「如果高度等于行间距，那就实现了文本的垂直居中」*/
+  color: #f8f8f8; /*字体颜色*/
+  margin-bottom: 10px;
+}
+
+.navbar {
+  width: 100%; /*设置导航宽度*/
+  margin: 0 auto; /*水平居中*/
+}
+
+.navbar-left {
+  float: left; /*你去左边*/
+  padding-left: 10px; /*离边远点*/
+  font-family: 'Open Sans' , sans-serif;
+  font-size: 20px; /*品牌大小*/
+  font-weight: 600;
+}
+
+.navbar-slogan {
+  float: left; /*往左滑*/
+  padding-left: 15px; /*和brand拉开距离*/
+}
+
+.navbar-list {
+  float: right; /*你去右边*/
+  padding-right: 30px;
+  font-size: 12px;
+}
+
+.navbar-cart {
+  float:left;
+  padding-right: 30px;
+}
+.navbar-listItem {
+  float: left; /*li是block元素，我们知道block元素是会独占一行的，如果要让它们在一行，那就要加上float*/
+  padding-left: 10px;/*左边加点空间，不然太挤啦*/
+  padding-right: 10px;/*右边加点空间，不然太挤啦*/
+}
+
+.dropdown{
+  float:left;
+  padding-right: 30px;
+}
+
+.dropdown-menu {
+  float:left;
+    padding-right: 30px;
+}
+
+
+.navbar-wrap a {
+  color: #c7ccd3; /*文字的颜色*/
+  text-decoration:none;/*不要下划线啦，好丑*/
+}
+
+.navbar-wrap a:hover {
+  color: #e9cf87; /*鼠标一上去的时候，字体变色*/
+  text-decoration:none;/*放上鼠标也不要下划线啦，好丑*/
+}

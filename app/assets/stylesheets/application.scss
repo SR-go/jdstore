@@ -62,8 +62,7 @@
 }
 
 
-
-/*****************globals*************/
+/*产品show页面css*/
 body {
   font-family: 'open sans';
   overflow-x: hidden; }
@@ -226,4 +225,17 @@ img {
     -webkit-transform: scale(1);
             transform: scale(1); } }
 
-/*# sourceMappingURL=style.css.map */
+/*searchbar css*/
+
+.search-button {
+  width: 54px;
+  height: 36px;
+  border: none; /*去掉button默认的border*/
+  background: none; /*去掉button默认的背景颜色*/
+  font-family: "Microsoft YaHei";
+  font-size: 16px;
+  position: absolute; /*绝对定位*/
+  cursor: pointer; /*鼠标一上去，显示手型*/
+  top: 0;
+  right: 0;
+}
