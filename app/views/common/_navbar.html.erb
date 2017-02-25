@@ -1,60 +1,49 @@
 <div class="navbar-wrap">
-  <div class="navbar">
-    <div class="navbar-left">
-        <%= link_to("SR Electronics", root_path) %>
+    <div class="navbar">
+        <div class="navbar-left">
+            <%= link_to("SR Electronics", root_path) %>
+        </div>
+        <div class="navbar-slogan">
+            为品质而生
+        </div>
+        <div id="search">  <%= form_tag products_path, :method => "get" do %>
+                <div class="searchform">
+                    <%= text_field_tag :search, params[:search], placeholder: "搜索产品", class: "searchbox"%>
+                    <span>
+                        <%= submit_tag "搜索", :title => nil, :description => nil, class: "button" %>
+                        <!-- <input type="submit" value="点 击" class="button"> -->
+                    </span>
+                </div>
+            <% end %>
+        </div>
+        <ul class="navbar-list">
+            <li class="navbar-cart">
+                <%= link_to carts_path do %>
+                    购物车 <i class="fa fa-shopping-cart"> </i> ( <%= current_cart.products.count %> )
+                <% end %>
+            </li>
+            <% if !current_user %>
+                <li class="navbar-listItem"><%= link_to("注册", new_user_registration_path) %> </li>
+                <li class="navbar-listItem"><%= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path) %> </li>
+            <% else %>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <%= current_user.email %>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <% if current_user.admin? %>
+                            <li>
+                                <%= link_to("Admin 选单", admin_products_path) %>
+                            </li>
+                        <% end %>
+                        <li>
+                            <%= link_to("个人订单列表", account_orders_path) %>
+                        </li>
+                        <li><%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %></li>
+                    </ul>
+                </li>
+            <% end %>
+        </ul>
     </div>
-
-<div class="navbar-slogan">
-    为品质而生
-</div>
-
-
-<div id="search">  <%= form_tag products_path, :method => "get" do %>
-
-      <div class="searchform">
-       <%= text_field_tag :search, params[:search], placeholder: "搜索产品", class: "searchbox"%>
-              <span>
-                  <%= submit_tag "搜索", :title => nil, :description => nil, class: "button" %>
-                  <!-- <input type="submit" value="点 击" class="button"> -->
-            </span>
-          </div>
-
-        <% end %>
-      </div>
-
-
-<ul class="navbar-list">
-  <li class="navbar-cart">
-    <%= link_to carts_path do %>
-    购物车 <i class="fa fa-shopping-cart"> </i> ( <%= current_cart.products.count %> )
-
-    <% end %>
-  </li>
-
-<% if !current_user %>
-  <li class="navbar-listItem"><%= link_to("注册", new_user_registration_path) %> </li>
-  <li class="navbar-listItem"><%= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path) %> </li>
-<% else %>
-<li class="dropdown">
-<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-<%= current_user.email %>
-<b class="caret"></b>
-</a>
-<ul class="dropdown-menu">
-<% if current_user.admin? %>
-<li>
-<%= link_to("Admin 选单", admin_products_path) %>
-</li>
-<% end %>
-<li>
-<%= link_to("个人订单列表", account_orders_path) %>
-</li>
-<li><%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %></li>
-</ul>
-</li>
-<% end %>
-
-
-</ul>
-  </div>
 </div>
