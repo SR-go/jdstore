@@ -1,103 +1,31 @@
-<%= render "common/navbar_sub" %>
-<%= render "common/carousel" %>
 
+<div class="productList-wrap mt30 bc" style="width: 1000px; margin: 0 auto;">
+    <ul class="productList clearfix pl10 pr10 pb20">
+       <% @products.each_with_index do |product, index| %>
+        <% if index > 0 && (index + 1) % 5 == 0 %>
+          <li class="fl productList-item productList-lastItem p15">
+        <% else %>
+          <li class="fl productList-item p15">
+        <% end %>
+            <p class="productList-item-pic w200 h200">
+              <%= link_to product_path(product) do %>
+                <% if product.image.present? %>
+                  <%= image_tag(product.image.thumb.url, class:"thumbnail")%>
+                <% else %>
+                  <%= image_tag("http://placehold.it/418x418&text=No Pic") %>
+                <% end %>
+              <% end %>
+          </p>
+          <p class="productList-item-price fb col-red f18 mt10">￥<%= product.price %></p>
+          <p class="productList-item-name ell">
+            <%= link_to product_path(product) do %>
+               <%= product.title %>
+            <% end %>
+          </p>
+          <p class="productList-item-desc mt5 f12"><%= product.description %></p>
 
-<div id="head_hot_goods_wrap">
-         <div id="head_hot_goods_title">
-             <span class="title_span">明星单品</span>
+        </li>
 
-         </div>
-         <div id="head_hot_goods_content">
-             <ul>
-                 <li>
-                     <a href="/products/8"><img src="https://ww3.sinaimg.cn/large/006tNbRwgy1fcfgdzysyej304g04gaa6.jpg"></a>
-                     <a>小米电视2</a>
-                     <a>40英寸 现货购买</a>
-                 </li>
-                 <li>
-                     <a href="/products/18"><img src="https://ww4.sinaimg.cn/large/006tNbRwgy1fcfgf9i2k2j304g04g748.jpg"></a>
-                     <a>小米平板</a>
-                     <a>全球首款 NVIDIA Tegra K1 平板</a>
-                 </li>
-                 <li>
-                     <a href="/products/16"><img src="https://ww3.sinaimg.cn/large/006tNbRwgy1fcfgfepnh2j304g04gdfo.jpg"></a>
-                     <a>小米盒子增强版 1G</a>
-                     <a>首款4K超高清网络机顶盒</a>
-                 </li>
-                 <li>
-                     <a href="/products/15"><img src="https://ww3.sinaimg.cn/large/006tNbRwgy1fcfgl5hbznj304g04ga9v.jpg"></a>
-                     <a>全新小米路由器</a>
-                     <a>顶配路由器，企业级性能</a>
-                 </li>
-                 <li>
-                     <a href="/products/13"><img src="https://ww3.sinaimg.cn/large/006tNbRwgy1fcfglbnsthj304g04gdfq.jpg"></a>
-                     <a>小米头戴式耳机</a>
-                     <a>媲美主流千元级头戴耳机</a>
-                 </li>
-             </ul>
-         </div>
-</div>
-
-<div id="main_show_box">
-         <div id="floor_1">
-              <div id="floor_head">
-                  <span class="title_span">智能硬件</span>
-              </div>
-         </div>
-         <div class="floor_goods_wrap">
-             <ul>
-                 <li class="floor_goods_wrap_li">
-                     <a href="/products/17"><img src="https://ww2.sinaimg.cn/large/006tKfTcgy1fcqfusiji2j306i0h2mxq.jpg"></a>
-                 </li>
-                 <li class="floor_goods_wrap_li">
-                     <a href="/products/19" class="floor_goods_img"><image src="https://ww1.sinaimg.cn/large/006tKfTcgy1fcqfnsduldj304g04gmx3.jpg"></a>
-                     <a class="floor_goods_tit">小米智能家庭套装</a>
-                     <a class="floor_goods_txt">3分钟快速安装，30多种智能玩法</a>
-                     <a class="floor_goods_price">199元</a>
-                 </li>
-                 <li class="floor_goods_wrap_li">
-                     <a href="/products/20"class="floor_goods_img"><img src="https://ww2.sinaimg.cn/large/006tKfTcgy1fcqfpr8wlzj304g04gq2u.jpg"></a>
-                     <a class="floor_goods_tit">小米随身WIFI 8GB U盘版</a>
-                     <a class="floor_goods_txt">随身上网神器，内置8GB U盘</a>
-                     <a class="floor_goods_price">49.9元</a>
-                 </li>
-                 <li class="floor_goods_wrap_li">
-                     <a href="/products/21" class="floor_goods_img"><img src="https://ww1.sinaimg.cn/large/006tKfTcgy1fcqfqgm6wij304g04ga9w.jpg"></a>
-                     <a class="floor_goods_tit">小蚁智能摄像机</a>
-                     <a class="floor_goods_txt">能看能听能说，手机远程观看</a>
-                     <a class="floor_goods_price">149元</a>
-                 </li>
-                 <li class="floor_goods_wrap_li">
-                     <a href="/products/22" class="floor_goods_img"><img src="https://ww4.sinaimg.cn/large/006tKfTcgy1fcqfqsundcj304g04gt8i.jpg"></a>
-                     <a class="floor_goods_tit">小米体重称</a>
-                     <a class="floor_goods_txt">高精度压力传感器 ｜ 手机管理全家健康</a>
-                     <a class="floor_goods_price">99元</a>
-                 </li>
-                 <li class="floor_goods_wrap_li">
-                     <a href="/products/23" class="floor_goods_img"><img src="https://ww3.sinaimg.cn/large/006tKfTcgy1fcqfr7dzwjj304g04g749.jpg"></a>
-                     <a class="floor_goods_tit">小蚁运动机</a>
-                     <a class="floor_goods_txt">边玩边录边拍，手机随时分享</a>
-                     <a class="floor_goods_price">399元</a>
-                 </li>
-                 <li class="floor_goods_wrap_li">
-                     <a href="/products/24" class="floor_goods_img"><img src="https://ww4.sinaimg.cn/large/006tKfTcgy1fcqfsfg63jj304g04gjr8.jpg"></a>
-                     <a class="floor_goods_tit">小米路由器 mini</a>
-                     <a class="floor_goods_txt">主流双频AC智能路由器，性价比之王</a>
-                     <a class="floor_goods_price">129元</a>
-                 </li>
-                 <li class="floor_goods_wrap_li">
-                     <a href="/products/25" class="floor_goods_img"><img src="https://ww2.sinaimg.cn/large/006tKfTcgy1fcqftey8f5j304g04gmwz.jpg"></a>
-                     <a class="floor_goods_tit">小米智能插座</a>
-                     <a class="floor_goods_txt">手机远程遥控开关，带USB接口</a>
-                     <a class="floor_goods_price">59元</a>
-                 </li>
-                 <li class="floor_goods_wrap_li">
-                     <a href="/products/26" class="floor_goods_img"><img src="https://ww2.sinaimg.cn/large/006tKfTcgy1fcqftw8iuej304g04g3ya.jpg"></a>
-                     <a class="floor_goods_tit">小米水质TDS检测笔</a>
-                     <a class="floor_goods_txt">准确检测家中水质纯度</a>
-                     <a class="floor_goods_price">39元</a>
-                 </li>
-                 <div style="clear:both;"></div>
-             </ul>
-         </div>
-     </div>
+      <% end %>
+    </ul>
+  </div>
