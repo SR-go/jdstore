@@ -12,6 +12,7 @@ data: { confirm: "你确定要清空整个购物车吗？"}) %>
                         <th colspan="2">商品资讯</th>
                         <th>单价</th>
                         <th>数量</th>
+                        <th>小计（元）</th>
                         <th>操作选项</th>
                     </tr>
                 </thead>
@@ -34,11 +35,16 @@ data: { confirm: "你确定要清空整个购物车吗？"}) %>
                                 <%= cart_item.product.price %>
                             </td>
                             <td>
-                                <% cart_item = current_cart.cart_items.find_by(product_id: cart_item.product_id) %>
-                                <%= form_for cart_item, url: cart_item_path(cart_item.product_id) do |f| %>
-                                    <%= f.select :quantity, 1..cart_item.product.quantity %>
-                                    <%= f.submit "更新", data: { disable_with: "Submitting..."} %>
-                                <% end %>
+                            <div class="item-quantity fl tc">
+                              <div class="countNumber">
+                                <%= link_to("-", remove_quantity_cart_item_path(cart_item.product_id), class: "countNumber-btn countNumber-btn-sub", method: :post) %>
+                                <input class="countNumber-input" type="text" value="<%= cart_item.quantity %>">
+                                <%= link_to("+", add_quantity_cart_item_path(cart_item.product_id), class: "countNumber-btn countNumber-btn-plus", method: :post) %>
+                              </div>
+                            </div>
+                            </td>
+                            <td>
+                             <div class="item-total fl tc"><%= cart_item.product.price * cart_item.quantity  %></div>
                             </td>
                             <td>
                                 <%= link_to cart_item_path(cart_item.product_id), method: :delete do %>

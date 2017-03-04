@@ -32,7 +32,7 @@
 
   <title>eCommerce Product Detail</title>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=OpenSans:400,700" rel="stylesheet">
 
 </head>
 
@@ -49,7 +49,8 @@
 					<div class="preview col-md-6">
 
 						<div class="preview-pic tab-content" style="width:400px; height:400px">
-						  <div class="tab-pane active" id="pic-1" >  <% if @product.image.present? %>
+						  <div class="tab-pane active" id="pic-1" >  
+						  <% if @product.image.present? %>
                   <%= image_tag(@product.image.medium.url, class: "thumbnail") %>
                 <% else %>
                   <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
@@ -87,6 +88,7 @@
 							<span class="size" data-toggle="tooltip" title="large">l</span>
 							<span class="size" data-toggle="tooltip" title="xtra large">xl</span>
 						</h5> -->
+						
 						<h5 class="colors">颜色选择:
 							<span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
 							<span class="color green"></span>
@@ -94,11 +96,42 @@
 						</h5>
 						<div class="action">
 							<button class="add-to-cart btn btn-default" type="button"><% if @product.quantity.present? && @product.quantity > 0 %>
-<%= link_to("加入购物车", add_to_cart_product_path(@product), :method => :post ) %>
-<% else %>
-无库存
-<% end %></button>
-							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+                            <%= link_to("加入购物车", add_to_cart_product_path(@product), :method => :post ) %>
+                            <% else %>
+                               无库存
+                            <% end %>
+                            </button>
+                          <% if current_user %>
+                            <% if current_user.favorites.where(product: @product).empty? %>
+                            <button class="like btn btn-default" type="button">
+                                <span class="fa fa-heart"></span>
+                                <%= link_to("收藏", favorites_path(product_id: @product), method: :post) %>
+                            </button>
+                          <% else %>
+                            <button class="like btn btn-default" type="button">
+                                <span class="fa fa-heart"></span>
+                                <%= link_to("取消收藏", favorite_path(@product), method: :delete) %>
+                            </button>
+                            <% end %>
+                        <% else %>
+                            <button class="like btn btn-default" type="button">
+                                <span class="fa fa-heart"></span>
+                                <%= link_to("收藏", favorites_path(product_id: @product), method: :post) %>
+                            </button>
+                            <% end %>
+  
+							<div>
+							<br>
+                                <h3 class="comments_title ">
+                                    <%= @product.comments.count %>
+                                    条评论
+                                </h3>
+                                <hr>
+                                <div id="comments">
+                                    <%= render @product.comments%>
+                                    <%= render "comments/form"%>
+                                </div>
+                            </div>
 						</div>
 					</div>
 				</div>
